@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import LoginPage from '../pages/LoginPage';
 import Panier from '../pages/PanierPag';
-test('test panier ', async ({ page }) => {
+test('test panier ',{tag:['@tc-005',"@regression"]}, async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   const loginPage:LoginPage= new LoginPage(page);
   await loginPage.saisirUsername('standard_user');
