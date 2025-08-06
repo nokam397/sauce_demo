@@ -27,6 +27,9 @@ class CheckoutStepOnePage {
     async saisirLastName(lastName: string){
         await this.elements.lastName().fill(lastName);
     }
+    async cliquerSurContinueButton(){
+        await this.elements.continueButton().click();
+    }
     async startcheckout(firstName: string, lastName: string){
         await this.elements.firstname().fill(firstName);
         await this.elements.lastName().fill(lastName);
