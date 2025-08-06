@@ -30,6 +30,7 @@ class Panier {
   async supprimerArticle() {
     await this.elements.removeBackpack().click();
     await this.elements.continueShopping().click();
+    //jdfkjdfnsdkjfnifzjfndkkj
   }
 
   async compterArticlesPanier(): Promise<number> {
