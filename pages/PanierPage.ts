@@ -14,7 +14,7 @@ class Panier {
     cartLink: () => this.page.locator('[data-test="shopping-cart-link"]'),
     removeBackpack: () => this.page.locator('[data-test="remove-sauce-labs-backpack"]'),
     continueShopping: () => this.page.locator('[data-test="continue-shopping"]'),
-   
+    badgeCount: () => this.page.locator('.shopping_cart_badge'),
   };
 
   async ajouterArticle() {
@@ -31,7 +31,15 @@ class Panier {
     await this.elements.removeBackpack().click();
     await this.elements.continueShopping().click();
   }
- 
+
+  async compterArticlesPanier(): Promise<number> {
+    const badge = this.elements.badgeCount();
+    if (await badge.count() === 0) {
+      return 0;
+    }
+    const countText = await badge.textContent();
+    return parseInt(countText || '0', 10);
+  }
 }
 
 export default Panier;
